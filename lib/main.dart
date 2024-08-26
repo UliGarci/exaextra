@@ -27,9 +27,11 @@ class MyApp extends StatelessWidget {
               create: (context) => UserCubit(UserRepository()),
               child: Adduserscreen(),
             ),
-        DeleteUserScreen.ROUTE: (context) => BlocProvider(
-              create: (context) => UserCubit(UserRepository()),
-              child: DeleteUserScreen(),
+        DeleteUserScreen.ROUTE: (context) => BlocProvider.value(
+              value: context.read<UserCubit>(),
+              child: DeleteUserScreen(
+                  user:
+                      ModalRoute.of(context)!.settings.arguments as UserModel),
             ),
         Updateuserscreen.ROUTE: (context) => BlocProvider.value(
               value: context.read<UserCubit>(),
@@ -82,7 +84,7 @@ class UserListScreen extends StatelessWidget {
                     SizedBox(height: 8),
                     ElevatedButton(
                       onPressed: () {
-                        Navigator.pushNamed(context, '/delete');
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>DeleteUserScreen(user:user)));
                       },
                       child:
                           Text('Eliminar'),

@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_prueba1/data/models/userModel.dart';
-import 'package:flutter_prueba1/data/repositories/userRepository.dart';
-import 'package:flutter_prueba1/main.dart';
 import 'package:flutter_prueba1/presentation/cubits/user_cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
